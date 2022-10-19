@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+    New Post
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="create($event)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input formControlName="title" type="text" name="title" id="title" class="form-control" placeholder="Title">
+        <div *ngIf="f.title.errors">
+          <span class="text-danger" *ngIf="f.title.errors.required">Title is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="body">Body</label>
+        <textarea formControlName="body" rows="3" name="body" id="body" class="form-control" placeholder="Body"></textarea>
+        <div *ngIf="f.body.errors">
+          <span class="text-danger" *ngIf="f.body.errors.required">Body is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
